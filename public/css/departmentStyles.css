@@ -1,0 +1,567 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #333;
+    text-align: center;
+    transition: background 0.3s ease;
+}
+
+/* Header & Logo */
+header {
+    background-color: white;
+    padding: 10px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+header img {
+    width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+header img:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+/* Navbar */
+nav {
+    background-color: rgba(52, 95, 141, 0.9);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav.scrolled {
+    background: rgba(52, 95, 141, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: #d1e7fd;
+    transform: translateY(-2px);
+}
+
+/* Mobile Menu */
+.mobile-menu-icon {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu-icon:hover {
+    transform: rotate(180deg);
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(52, 95, 141, 0.95);
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+}
+
+/* Section Styling */
+section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 0.7s ease-in-out forwards;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Section Titles */
+h2 {
+    font-size: 28px;
+    color: #345f8d;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Vision & Mission Section */
+.vision-mission {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeIn 0.8s ease-in-out 0.3s forwards;
+}
+
+.vision, .mission {
+    flex: 1;
+    min-width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 20px;
+}
+
+.vision:hover, .mission:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.vision {
+    background: #e3f2fd; /* Light blue, professional & subtle */
+    font-weight: bold;
+    padding: 20px;
+    border-left: 5px solid #1565c0; /* Darker blue for a strong visual cue */
+    font-size: 1.1em;
+    color: #0d47a1; /* Deep blue text for professional contrast */
+}
+
+
+/* Academic Programs */
+.academic-programs {
+    background: #eef2f7;
+}
+
+/* Faculty Section */
+.faculty {
+    background: #fdf3e7;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Main container for "Short Visit" and "Latest Contents" */
+/* Main container for "Short Visit" and "Latest Contents" */
+
+
+/* Container for main content and sidebar */
+/* Main container for "Short Visit" and "Latest Contents" */
+.content-container {
+    display: flex;
+    align-items: flex-start;
+    max-width: 90%;
+    margin: 40px auto;
+    gap: 30px; /* Space between sidebar and content */
+}
+
+/* Left Sidebar - Latest Contents */
+.latest-contents {
+    width: 250px; /* Fixed width */
+    background: #e3f2fd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 80px; /* Sticks below navbar */
+    height: fit-content;
+    text-align: left;
+    align-self: flex-start; /* Align sidebar to top */
+}
+
+/* Sidebar Title */
+.latest-contents h3 {
+    font-size: 40px;
+    color: #1565c0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Sidebar List */
+.latest-contents ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.latest-contents li {
+    padding: 10px 15px;
+    border-bottom: 1px solid #bbdefb;
+    transition: background 0.3s ease-in-out;
+}
+
+.latest-contents li:last-child {
+    border-bottom: none;
+}
+
+/* Hover Effect */
+.latest-contents li:hover {
+    background: #bbdefb;
+    cursor: pointer;
+}
+
+/* Main Content - Right Side */
+.department-overview {
+    flex-grow: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 25px;
+}
+
+
+
+
+/* Professional Handwritten Style for Headings */
+h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #1e3a5f;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Elegant Font for Paragraphs */
+p {
+    font-family: 'Merriweather', serif;
+    font-size: 20px;
+    line-height: 1.8;
+    color: #333;
+    text-align: justify;
+}
+
+/* List Items with a Classic Look */
+ul li {
+    font-family: 'Merriweather', serif;
+    font-size: 18px;
+    list-style-type: ""; /* Custom dash bullet */
+}
+
+.peo {
+    margin-top: -30px !important; /* Forces removal of space */
+
+}
+
+.vision-mission {
+    margin-bottom: 0;
+}
+
+.vision-mission, .peo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Adjust as needed */
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+ ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px; /* Adjust icon size */
+    height: 16px;
+    background: url('https://img.icons8.com/ios-filled/16/000000/right.png') no-repeat center;
+    background-size: contain;
+}
+
+/* Remove default bullets from all lists */
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* Only apply bullet styles to specific sections, NOT navbar or latest contents */
+section ul, .vision-mission ul, .peo ul {
+    list-style: none; /* Removes default bullets */
+    padding-left: 20px;
+}
+
+section ul li, .vision-mission ul li, .peo ul li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    position: relative;
+    padding-left: 30px; /* Space for the icon */
+    line-height: 1.6;
+}
+
+/* Custom arrow bullets - Only for content sections */
+section ul li::before, .vision-mission ul li::before, .peo ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background: url('https://img.icons8.com/ios-filled/16/000000/right.png') no-repeat center;
+    background-size: contain;
+}
+
+/* Ensure Navbar & Latest Contents Lists Remain Unaffected */
+.nav-links li::before, .latest-contents li::before {
+    content: none !important; /* Forces no bullets */
+}
+
+/* Make sure the navbar links are displayed correctly */
+.nav-links li {
+    padding-left: 0 !important;
+    margin: 0;
+}
+
+
+
+.cse-heading {
+    text-align: center;
+    font-size: 50px; /* Large Heading */
+    font-weight: bold;
+    color: #ffffff; /* White Text */
+    /* margin: 20px 0; */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: 'Playfair Display', serif;
+    padding: 20px;
+    background: linear-gradient(135deg, #1e3a5f, #3a6186); /* Smooth Gradient */
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft Shadow */
+    display: inline-block;
+    width: 100%; /* Full Width */
+}
+
+footer {
+    background: #0d47a1;
+    color: white !important;
+    text-align: center;
+    padding: 2px 5px !important; 
+    /* font-size: 5px !important;  */
+    line-height: 20px !important;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.footer-container p {
+    font-family: 'Montserrat', sans-serif;
+    /* font-weight: 100; */
+    letter-spacing: 0.5px;
+    color: white !important; /* Force white text for all paragraphs */
+    bottom: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    height: 400px; /* Adjust height as needed */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures images cover the full area without distortion */
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+
+.fade {
+    animation: fadeEffect 1s ease-in-out;
+}
+
+@keyframes fadeEffect {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+/* ===== Student Portal Styling ===== */
+.form-section {
+    background: #f4f4f4;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 30px auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form button {
+    background: #0056b3;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background: #003d82;
+}
+
+.dashboard-section {
+    background: #f4f4f4;
+    padding: 40px;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 30px auto;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-section h2 {
+    color: #0056b3;
+}
+
+#details p {
+    font-size: 16px;
+    color: #333;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: #003d82;
+}
+
+.main-content {
+    flex: 1;                 /* Pushes footer to bottom */
+}
+
+/* Footer styling (keep your current color) */
+footer {
+    width: 100%;
+}
+
+/* Login button styles in the nav */
+.nav-links .login-btn {
+    background-color: #0056b3;  /* Button color */
+    color: white;               /* Text color */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.nav-links .login-btn:hover {
+    background-color: #003d82;  /* Darker blue on hover */
+}
+
+/* Login button in main content */
+.login-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.login-container .login-btn {
+    display: inline-block;
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.login-container .login-btn:hover {
+    background-color: #003d82;
+}

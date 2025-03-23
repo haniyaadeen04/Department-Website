@@ -1,0 +1,280 @@
+/* Apply Professional Font */
+body {
+    font-family: 'Poppins', sans-serif; /* Clean & professional font */
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* ====== Animations ====== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ====== General Transitions ====== */
+* {
+    transition: all 0.3s ease-in-out;
+}
+
+/* ====== LABS Heading Animation ====== */
+.labs-heading {
+    font-size: 40px;
+    font-weight: 700;
+    color: #1e3a5f;
+    text-align: center;
+    margin: 80px 0 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+/* ====== LABS Container Animation ====== */
+.labs-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 0 auto 80px;
+    background: #f4f4f4;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInScale 1s ease-in-out forwards 0.2s;
+}
+
+/* LABS Text */
+.labs-text {
+    font-size: 18px;
+    color: #333;
+    text-align: justify;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Important Text */
+.labs-text strong {
+    color: #1e3a5f;
+    font-weight: 700;
+}
+
+/* ====== Sidebar (Latest Contents) ====== */
+.latest-contents {
+    width: 300px;
+    background: #e3f2fd;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: fadeInLeft 1s ease-in-out forwards;
+}
+
+/* Sidebar Heading */
+.latest-contents h3 {
+    color: #2c5784;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* Sidebar List */
+.latest-contents ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Sidebar List Items */
+.latest-contents li {
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid #d1eaff;
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+/* Remove Border from Last Item */
+.latest-contents li:last-child {
+    border-bottom: none;
+}
+
+/* Hover Effect */
+.latest-contents li:hover {
+    color: #ff5733;
+    transform: translateX(5px);
+}
+
+/* ====== LABS Table Animation ====== */
+.labs-table-heading {
+    font-size: 30px;
+    font-weight: 700;
+    color: #1e3a5f;
+    text-align: center;
+    margin: 60px 0 20px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+/* Table Container */
+.labs-table-container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    overflow-x: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInScale 1s ease-in-out forwards 0.2s;
+}
+
+/* Table Styling */
+.labs-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Table Headers */
+.labs-table th {
+    background: #2c5784;
+    color: white;
+    font-size: 18px;
+    padding: 15px;
+    text-align: left;
+}
+
+/* Table Rows */
+.labs-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+}
+
+/* Alternate Row Colors */
+.labs-table tbody tr:nth-child(even) {
+    background-color: #f8fbff;
+}
+
+/* Hover Effect */
+.labs-table tbody tr:hover {
+    background: #e9f5ff;
+    transition: background 0.3s ease-in-out;
+}
+
+/* ====== Responsive Design ====== */
+@media (max-width: 1024px) {
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .latest-contents {
+        width: 90%;
+        position: static;
+    }
+
+    .labs-container {
+        width: 90%;
+    }
+
+    .labs-table-container {
+        overflow-x: auto;
+    }
+
+    .labs-table th, .labs-table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .labs-heading {
+        font-size: 36px;
+    }
+
+    .labs-text {
+        font-size: 16px;
+    }
+
+    .labs-table-heading {
+        font-size: 26px;
+    }
+
+    .labs-table th, .labs-table td {
+        font-size: 13px;
+        padding: 8px;
+    }
+}
+
+/* CSE Facilities Heading */
+.facilities-heading {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1e3a5f;
+    text-align: center;
+    margin: 80px 0 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .facilities-heading {
+        font-size: 32px;
+    }
+}

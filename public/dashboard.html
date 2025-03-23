@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - CSE Department</title>
+    <link rel="stylesheet" href="css/departmentStyles.css">  <!-- Use existing CSS -->
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <img src="logo.png" alt="Institute Logo" class="logo">
+</header>
+
+<!-- Navigation Bar -->
+<nav>
+    <ul class="nav-links">
+        <li><a href="department.html">Home</a></li>
+        <li><a href="department.html">About Us</a></li>
+        <li><a href="#">Academics</a></li>
+        <li><a href="#">Faculty</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="Facilities.html">Facilities</a></li>
+        <li><a href="placements.html">Placements</a></li>
+        <li><a href="#">Contact Us</a></li>
+    </ul>
+    <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- Main Content -->
+<div class="content-container">
+    <div class="main-content">
+        <section class="dashboard-section">
+            <h2>Student Dashboard</h2>
+            <div id="details"></div>
+            <a href="login.html" onclick="logout()">Logout</a>
+        </section>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2025 Computer Science and Engineering Department. All rights reserved.</p>
+        <p>Designed by Students of SGGS</p>
+    </div>
+</footer>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+</html>

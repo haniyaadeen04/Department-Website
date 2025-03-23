@@ -1,0 +1,265 @@
+header {
+        text-align: center;
+        margin: 0;
+    }
+  
+    header img {
+        width: 100%; /* Make the logo span the entire width */
+        height: auto;
+    }
+  
+    header h1 {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+  
+    header p {
+        margin: 5px 0;
+    }
+
+    /* Image Slider */
+    .image-slider {
+        position: relative;
+        width: 100%;
+        height: 700px; /* Increased height of the image slider */
+        overflow: hidden;
+    }
+  
+    .image-slider img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .image-slider img.active {
+        opacity: 1;
+    }
+
+    /* Social Icons and Secondary Nav - Full Line Background */
+    .social-secondary-wrapper {
+        background-color: #5e92c2;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        width: 100%;
+    }
+  
+    .social-icons {
+        display: flex;
+        gap: 15px;
+    }
+  
+    .social-icons a {
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        transition: color 0.3s ease;
+    }
+  
+    .social-icons a:hover {
+        color: #ffcccb;
+    }
+  
+    .secondary-nav {
+        display: flex;
+        gap: 20px;
+    }
+  
+    .secondary-nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s ease;
+    }
+  
+    .secondary-nav a:hover {
+        color: #ffcccb;
+    }
+  
+    /* Navigation Menu */
+    nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        background-color: #f8f9fa;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+  
+    nav ul li {
+        position: relative;
+        margin: 0 15px;
+    }
+  
+    nav ul li a {
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        color: #333;
+        padding: 10px 15px;
+        display: block;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+  
+    nav ul li a:hover {
+        background-color: #ddd;
+        color: #0d497f;
+    }
+
+    /* Add Dropdown + Symbol */
+    nav ul li a::after {
+        content: " +";
+        font-size: 12px;
+        padding-left: 5px;
+        color: #5e92c2;
+        transition: transform 0.3s ease, content 0.3s ease;
+    }
+
+    nav ul li:hover a::after {
+        content: " -";
+        transform: rotate(180deg);
+    }
+
+    /* Submenu (Dropdown) Styling */
+    .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 250px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+    }
+  
+    .submenu ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: block;
+    }
+  
+    .submenu ul li {
+        display: block;
+    }
+  
+    .submenu ul li a {
+        display: block;
+        padding: 10px 20px;
+        color: #333;
+        text-decoration: none;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        border-bottom: 1px solid #ddd;
+    }
+  
+    .submenu ul li a:hover {
+        background-color: #f2f2f2;
+        color: #0d497f;
+    }
+  
+    /* Show Submenu on Hover */
+    nav ul li:hover .submenu {
+        display: block;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+        nav ul {
+            flex-direction: column;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+        }
+
+        .submenu {
+            width: 100%;
+            left: 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .social-secondary-wrapper {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 15px;
+        }
+
+        .social-icons {
+            margin-bottom: 10px;
+        }
+
+        .secondary-nav {
+            flex-direction: column;
+        }
+
+        .secondary-nav a {
+            margin-bottom: 10px;
+        }
+
+        nav ul {
+            flex-direction: column;
+            width: 100%;
+        }
+
+        nav ul li a {
+            font-size: 18px;
+            padding: 12px;
+        }
+
+        .submenu {
+            width: 100%;
+            left: 0;
+        }
+
+        nav ul li a::after {
+            font-size: 18px;
+            padding-left: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        nav ul li a {
+            font-size: 16px;
+        }
+
+        .social-icons a {
+            font-size: 18px;
+        }
+
+        .secondary-nav a {
+            font-size: 14px;
+        }
+    }
+  
+
+    .department-link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+        text-align: center;
+      }
+      .department-button {
+        font-size: 24px;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+        background-color: #0d497f;
+        padding: 15px 30px;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+      }
+      .department-button:hover {
+        background-color: #0056b3;
+      }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Login - CSE Department</title>
+    <link rel="stylesheet" href="css/departmentStyles.css">  <!-- Use existing CSS -->
+</head>
+<body>
+
+<!-- Header with Full-Width Logo -->
+<header>
+    <img src="logo.png" alt="Institute Logo" class="logo">
+</header>
+
+<!-- Navigation Bar -->
+<nav>
+    <ul class="nav-links">
+        <li><a href="department.html">Home</a></li>
+        <li><a href="department.html">About Us</a></li>
+        <li><a href="#">Academics</a></li>
+        <li><a href="#">Faculty</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="Facilities.html">Facilities</a></li>
+        <li><a href="placements.html">Placements</a></li>
+        <li><a href="#">Contact Us</a></li>
+    </ul>
+    <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- Main Content -->
+<div class="content-container">
+    <div class="main-content">
+        <section class="form-section">
+            <h2>Student Login</h2>
+            <form id="login-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </section>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-container">
+        <p>&copy; 2025 Computer Science and Engineering Department. All rights reserved.</p>
+        <p>Designed by Students of SGGS</p>
+    </div>
+</footer>
+
+<script src="js/login.js"></script>
+
+</body>
+</html>
