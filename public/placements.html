@@ -18,21 +18,21 @@
     <nav>
         <ul class="nav-links">
             <li><a href="department.html">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Academics</a></li>
+            <li><a href="department.html">About Us</a></li>
+            <li><a href="academics.html">Academics</a></li>
             <li><a href="#">Faculty</a></li>
             <li><a href="#">Research</a></li>
-            <li><a href="#">Facilities</a></li>
+            <li><a href="Facilities.html">Facilities</a></li>
             <li class="has-submenu">
-                <a href="#" class="submenu-toggle">Placements ▼</a>
+                <a href="#" class="submenu-toggle">Placements</a>
                 <ul class="submenu">
                     <li><a href="#">Our Recruiters</a></li>
                     <li><a href="#">Placement Gallery</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="contactus.html">Contact Us</a></li>
                 </ul>
             </li>
             
-            <li><a href="#">Contact Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
         </ul>
         <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
     </nav>
@@ -163,6 +163,61 @@
     </script>
 <script src="placements.js"></script>
 
+
+<!-- Chatbot UI Start -->
+<button class="toggle-btn" onclick="toggleChatbot()">💬</button>
+
+<div class="chatbot-container" id="chatbot" style="display:none;">
+  <div class="chat-header">CSE Chatbot</div>
+  <div class="chat-body" id="chat-body"></div>
+  <div class="chat-input">
+    <input type="text" id="user-input" placeholder="Ask something...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+
+
+<script>
+  const chatbot = document.getElementById("chatbot");
+  const chatBody = document.getElementById("chat-body");
+  const userInput = document.getElementById("user-input");
+
+  function toggleChatbot() {
+    chatbot.style.display = chatbot.style.display === "none" ? "flex" : "none";
+  }
+
+  async function sendMessage() {
+    const msg = userInput.value.trim();
+    if (msg === "") return;
+    appendMessage("You", msg);
+
+    try {
+      const res = await fetch("http://localhost:5000/ask", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ question: msg }),
+      });
+
+      const data = await res.json();
+      setTimeout(() => appendMessage("Bot", data.answer), 500);
+    } catch (err) {
+      appendMessage("Bot", "Error contacting the AI server.");
+    }
+
+    userInput.value = "";
+  }
+
+  function appendMessage(sender, message) {
+    const msgDiv = document.createElement("div");
+    msgDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+</script>
+<!-- Chatbot UI End -->
 </body>
 
 </html>

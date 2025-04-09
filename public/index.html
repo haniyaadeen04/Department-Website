@@ -6,7 +6,7 @@
   <link rel="icon" href="images/sggs_icon.png" type="image/png">  
   <title>SGGSIE&T</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header>
@@ -156,10 +156,10 @@
   </div>
 
   <div class="image-slider">
-    <img src="images/p3.png" alt="Image 1" class="active">
-    <img src="images/p2.png" alt="Image 2">
-    <img src="images/p3.png" alt="Image 3">
-    <img src="images/p5.png" alt="Image 4">
+    <img src="css/Images/p3.png" alt="Image 1" class="active">
+    <img src="css/Images/p2.png" alt="Image 2">
+    <img src="css/Images/p3.png" alt="Image 3">
+    <img src="css/Images/p5.png" alt="Image 4">
   </div>
 
   <script>
@@ -174,5 +174,61 @@
 
     setInterval(changeImage, 3000); // Change image every 3 seconds
   </script>
+
+  <!-- Chatbot UI Start -->
+<button class="toggle-btn" onclick="toggleChatbot()">💬</button>
+
+<div class="chatbot-container" id="chatbot" style="display:none;">
+  <div class="chat-header">CSE Chatbot</div>
+  <div class="chat-body" id="chat-body"></div>
+  <div class="chat-input">
+    <input type="text" id="user-input" placeholder="Ask something...">
+    <button onclick="sendMessage()">Send</button>
+  </div>
+</div>
+
+
+
+<script>
+  const chatbot = document.getElementById("chatbot");
+  const chatBody = document.getElementById("chat-body");
+  const userInput = document.getElementById("user-input");
+
+  function toggleChatbot() {
+    chatbot.style.display = chatbot.style.display === "none" ? "flex" : "none";
+  }
+
+  async function sendMessage() {
+    const msg = userInput.value.trim();
+    if (msg === "") return;
+    appendMessage("You", msg);
+
+    try {
+      const res = await fetch("http://localhost:5000/ask", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ question: msg }),
+      });
+
+      const data = await res.json();
+      setTimeout(() => appendMessage("Bot", data.answer), 500);
+    } catch (err) {
+      appendMessage("Bot", "Error contacting the AI server.");
+    }
+
+    userInput.value = "";
+  }
+
+  function appendMessage(sender, message) {
+    const msgDiv = document.createElement("div");
+    msgDiv.innerHTML = `<strong>${sender}:</strong> ${message}`;
+    chatBody.appendChild(msgDiv);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+</script>
+<!-- Chatbot UI End -->
+
 </body>
 </html>
