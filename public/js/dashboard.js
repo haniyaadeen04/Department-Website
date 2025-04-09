@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     try {
         // ✅ Fetch student data by email first
-        const res = await fetch(`http://localhost:3001/students/email/${user.email}`);
+        const res = await fetch(`http://localhost:5000/students/email/${user.email}`);
         
         if (!res.ok) {
             console.error("Failed to fetch student data.");

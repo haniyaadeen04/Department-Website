@@ -117,11 +117,3 @@ a:hover {
     }
 }
 
-footer {
-    background-color: #333;     /* Footer background color */
-    color: white;                /* Footer text color */
-    text-align: center;
-    padding: 15px 0;
-    width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for better visibility */
-}
