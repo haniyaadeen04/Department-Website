@@ -1,5 +1,4 @@
-# Department-Website
-# 🛠️ Department Website - SGGS Institute
+# Department Website - SGGS Institute
 
 DepartmentWebsite  
  ├── node_modules/  
@@ -23,8 +22,10 @@ DepartmentWebsite
  │    ├── Facilities.html  
  │    ├── index.html  
  │    ├── login.html  
+      ├── facilities.html
+      ├── contactus.html
  │    └── placements.html  
- │  
+ │    
  ├── server/  
  │    ├── db.js  
  │    └── server.js  
