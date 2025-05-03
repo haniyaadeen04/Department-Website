@@ -19,7 +19,7 @@
             <li><a href="#short-visit">Home</a></li>
             <li><a href="department.html">About Us</a></li>
             <li><a href="academics.html">Academics</a></li>
-            <li><a href="#">Faculty</a></li>
+            <li><a href="faculty.html">Faculty</a></li>
             <li><a href="#">Research</a></li>
             <li><a href="Facilities.html">Facilities</a></li>
             <li><a href="placements.html">Placements</a></li>
@@ -32,9 +32,11 @@
 
     <div class="main-content">
         <h1 class="cse-heading">Computer Science and Engineering Department</h1>
-    
+
+
         <div class="login-container">
             <a href="login.html" class="login-btn">Student Login</a>
+            <a href="faculty-login.html" class="login-btn">Faculty Login</a>
         </div>
     </div>
     
@@ -154,6 +156,7 @@
     <!-- Chatbot UI Start -->
 <button class="toggle-btn" onclick="toggleChatbot()">💬</button>
 
+
 <div class="chatbot-container" id="chatbot" style="display:none;">
   <div class="chat-header">CSE Chatbot</div>
   <div class="chat-body" id="chat-body"></div>
@@ -161,7 +164,78 @@
     <input type="text" id="user-input" placeholder="Ask something...">
     <button onclick="sendMessage()">Send</button>
   </div>
+
+
+
+  
 </div>
+
+  <!-- Notification Bell Icon -->
+
+<!-- Notification Bell Icon -->
+<button class="notification-bell" id="notification-bell" onclick="toggleNotifications()">
+    🔔 <span class="badge" id="notification-badge"></span>
+</button>
+
+<!-- Notification Dropdown (Initially hidden) -->
+<div class="notification-dropdown" id="notification-dropdown">
+    <div class="notification-header">
+        <h4>Notifications</h4>
+    </div>
+    <div class="notification-list" id="notification-list">
+        <!-- Notifications will be dynamically inserted here -->
+    </div>
+</div>
+
+
+<script>
+    // Function to fetch notifications from the server
+// Function to fetch notifications from the server
+async function fetchNotifications() {
+    try {
+        const res = await fetch('http://localhost:5000/api/notifications'); // Adjust the URL to match your backend
+        if (!res.ok) throw new Error('Failed to fetch notifications');
+        
+        const notifications = await res.json();
+        
+        if (Array.isArray(notifications)) {
+            const notificationList = document.getElementById('notification-list');
+            notificationList.innerHTML = ''; // Clear previous notifications
+
+            notifications.forEach(notification => {
+                const notificationElement = document.createElement('div');
+                notificationElement.classList.add('notification');
+                notificationElement.innerHTML = `
+                    <h4>${notification.title}</h4>
+                    <p>${notification.message}</p>
+                `;
+                notificationList.appendChild(notificationElement);
+            });
+
+            // Highlight the notification bell if there are new notifications
+            if (notifications.length > 0) {
+                document.getElementById('notification-bell').classList.add('new-notification');
+                document.getElementById('notification-badge').innerText = notifications.length;
+            }
+        } else {
+            console.error('Notifications data is not an array:', notifications);
+        }
+    } catch (error) {
+        console.error('Error fetching notifications:', error);
+    }
+}
+
+// Toggle the visibility of the notification dropdown
+function toggleNotifications() {
+    const dropdown = document.getElementById('notification-dropdown');
+    dropdown.style.display = dropdown.style.display === 'none' || dropdown.style.display === '' ? 'block' : 'none';
+}
+
+// Call the fetchNotifications function when the page loads
+document.addEventListener('DOMContentLoaded', fetchNotifications);
+
+</script>
+
 
 
 
@@ -228,6 +302,35 @@
     }
 
     document.addEventListener("DOMContentLoaded", showSlides);
+
+
+
+    // Fetching notifications from the server and displaying them
+async function fetchNotifications() {
+    try {
+      const res = await fetch('http://localhost:5000/api/notifications');  // Adjust URL based on your API
+      if (!res.ok) throw new Error('Failed to fetch notifications');
+      
+      const notifications = await res.json();
+      
+      // Display notifications in the dashboard
+      const notificationContainer = document.getElementById('notification-list');
+      notificationContainer.innerHTML = '';
+      
+      notifications.forEach(notification => {
+        const notificationElement = document.createElement('div');
+        notificationElement.classList.add('notification');
+        notificationElement.innerHTML = `
+          <h3>${notification.title}</h3>
+          <p>${notification.message}</p>
+        `;
+        notificationContainer.appendChild(notificationElement);
+      });
+    } catch (error) {
+      console.error('Error fetching notifications:', error);
+    }
+  }
+  
 </script>
 
 

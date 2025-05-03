@@ -4,7 +4,8 @@ const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
-    database: "student_portal"
+    database: "student_portal",
+    port:3306
 });
 
 db.connect((err) => {

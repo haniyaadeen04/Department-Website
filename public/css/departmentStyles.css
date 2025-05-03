@@ -679,3 +679,378 @@ footer {
     cursor: pointer;
     z-index: 1000;
   }
+
+  /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Announcement Section */
+  .announcement {
+    background-color: #ffffff;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .announcement:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    color: #333333;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #666666;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  
+  small {
+    font-size: 0.9rem;
+    color: #999999;
+    display: block;
+    text-align: right;
+  }
+  
+  /* Media Queries for Responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      width: 95%;
+    }
+  
+    .announcement {
+      padding: 15px;
+    }
+  
+    h3 {
+      font-size: 1.25rem;
+    }
+  
+    p {
+      font-size: 0.95rem;
+    }
+  
+    small {
+      font-size: 0.85rem;
+    }
+  }
+  
+
+  /* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  button {
+    background-color: #035fc2;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Dashboard Container */
+  .dashboard-container {
+    padding: 30px;
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  form {
+    margin-bottom: 20px;
+  }
+  
+  form input, form textarea, form select {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  form input[type="file"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  form button {
+    background-color: #007bff;
+    border-radius: 6px;
+    font-size: 1.1rem;
+  }
+  
+  form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Announcement List */
+  .announcement-list {
+    margin-top: 30px;
+  }
+  
+  .announcement-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .announcement-item h4 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+  }
+  
+  .announcement-item p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+  }
+  
+  .announcement-item small {
+    display: block;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 10px;
+  }
+  
+  .announcement-item a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .announcement-item a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .dashboard-container {
+      padding: 20px;
+      margin: 10px;
+    }
+  
+    form input, form textarea, form select, form button {
+      font-size: 0.9rem;
+    }
+  
+    .announcement-item h4 {
+      font-size: 1.2rem;
+    }
+  
+    .announcement-item p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .dashboard-container {
+      padding: 15px;
+    }
+  
+    button {
+      width: 100%;
+      font-size: 1rem;
+      padding: 12px;
+    }
+  
+    .announcement-item {
+      padding: 15px;
+    }
+  
+    .announcement-item h4 {
+      font-size: 1.1rem;
+    }
+  
+    .announcement-item p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  .notification {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+  }
+  
+  .notification h3 {
+    margin: 0;
+    color: #333;
+  }
+  
+  .notification p {
+    margin: 5px 0;
+  }
+
+  /* Notification Bell Icon (Positioned on the left to avoid overlap with chatbot) */
+.notification-bell {
+  font-size: 30px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* Move it to the left */
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+/* Notification Bell Badge */
+.notification-bell .badge {
+  font-size: 14px;
+  color: white;
+  background-color: red;
+  border-radius: 50%;
+  padding: 2px 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* Highlight the bell icon when there are new notifications */
+.notification-bell.new-notification {
+  color: red; /* Change the color to red or any highlight color */
+  transform: scale(1.2); /* Slightly enlarge the icon when there's a new notification */
+}
+
+/* Notification Dropdown */
+.notification-dropdown {
+  position: fixed;
+  bottom: 70px;
+  left: 20px; /* Align to the left */
+  width: 250px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: none; /* Hidden by default */
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 999;
+}
+
+.notification-header {
+  background-color: #f1f1f1;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+}
+
+.notification-list {
+  padding: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.notification {
+  padding: 10px;
+  border-bottom: 1px solid #f1f1f1;
+  margin-bottom: 10px;
+}
+
+.notification:hover {
+  background-color: #f9f9f9;
+}
+
+.faculty-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.faculty-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+}
+
+.faculty-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.7em;
+}
+
+.faculty-card p {
+  margin: 4px 0;
+  font-size: 1.5em;
+}
+
+.faculty-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px;
+}
+
+.faculty-card {
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  width: 400px;
+  height: 550px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  text-align: center;
+  transition: transform 0.3s ease;
+  font-family: 'Times New Roman', serif;
+}
+
+.faculty-card:hover {
+  transform: scale(1.05);
+}
+
+.faculty-card img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  border: 3px solid #203156;
+}
+
+
