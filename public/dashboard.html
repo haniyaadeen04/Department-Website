@@ -33,10 +33,22 @@
         <section class="dashboard-section">
             <h2>Student Dashboard</h2>
             <div id="details"></div>
+            
+          <br><br>
+          <h1 style="text-align: center; font-weight: 900; font-size: 2rem; letter-spacing: 1px;">
+            Announcements
+          </h1>
+                    <br>
+            <div id="announcements">
+              <!-- Announcements will be inserted here dynamically -->
+            </div>
+
             <a href="login.html" onclick="logout()">Logout</a>
         </section>
     </div>
 </div>
+
+
 
 <!-- Footer -->
 <footer>
@@ -99,6 +111,47 @@
     chatBody.appendChild(msgDiv);
     chatBody.scrollTop = chatBody.scrollHeight;
   }
+
+
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    try {
+      // Fetch announcements for the student dashboard
+      const res = await fetch("http://localhost:5000/api/announcements");
+  
+      if (!res.ok) {
+        console.error("Failed to fetch announcements.");
+        alert("Failed to load announcements.");
+        return;
+      }
+  
+      const announcements = await res.json();
+  
+      // Check if there are any announcements
+      if (announcements.length === 0) {
+        document.getElementById("announcements").innerHTML = "<p>No announcements available.</p>";
+        return;
+      }
+  
+      // Loop through announcements and display them
+      let announcementsHTML = "";
+      announcements.forEach(announcement => {
+        announcementsHTML += `
+          <div class="announcement">
+            <h3>${announcement.title}</h3>
+            <p>${announcement.description}</p>
+          </div>
+        `;
+      });
+  
+      // Inject the HTML into the dashboard
+      document.getElementById("announcements").innerHTML = announcementsHTML;
+    } catch (error) {
+      console.error("Error fetching announcements:", error);
+      alert("Failed to load announcements. Please try again later.");
+    }
+  });
+  
 </script>
 <!-- Chatbot UI End -->
 

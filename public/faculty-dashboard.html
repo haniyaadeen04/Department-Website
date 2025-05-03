@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Faculty Dashboard - Announcements</title>
+  <link rel="stylesheet" href="css/departmentStyles.css">
+  <style>
+    .dashboard-container { padding: 20px; max-width: 800px; margin: auto; }
+    .dashboard-container h2 { text-align: center; }
+    form input, form textarea, form select {
+      width: 100%; margin: 10px 0; padding: 8px;
+    }
+    .announcement-list { margin-top: 30px; }
+    .announcement-item { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo.png" alt="Institute Logo" class="logo">
+</header>
+
+<!-- Navigation Bar -->
+ <div>
+<nav>
+    <ul class="nav-links">
+        <li><a href="department.html">Home</a></li>
+        <li><a href="department.html">About Us</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="#">Faculty</a></li>
+        <li><a href="#">Research</a></li>
+        <li><a href="Facilities.html">Facilities</a></li>
+        <li><a href="placements.html">Placements</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+    </ul>
+    <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+</div>
+<br><br>
+
+  <div class="dashboard-container">
+    <h2>Faculty Announcement Panel</h2>
+
+    <form id="announcementForm" enctype="multipart/form-data">
+        <input type="text" id="title" name="title" placeholder="Title" required />
+        <textarea id="description" name="description" placeholder="Description" required></textarea>
+        <select id="audience" name="audience" required>
+          <option value="students">Students</option>
+          <option value="faculty">Faculty</option>
+        </select>
+        <input type="file" id="attachment" name="attachment" />
+        <button type="submit">Post Announcement</button>
+    </form>
+
+    <!-- Add the Show Announcements Button -->
+    <button id="showAnnouncementsBtn">
+      <a href="view-announcements.html" style="color: aliceblue;">Show Announcements</a>
+    </button>
+
+
+    <div class="announcement-list" id="announcementList"></div>
+  </div>
+
+  <script>
+    // Handle the announcement form submission
+    document.getElementById("announcementForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      formData.append("created_by", "Dr. A.B. Faculty"); // Can be dynamically set if login is implemented
+
+      const res = await fetch("http://localhost:5000/api/announcements", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (res.ok) {
+        alert("Announcement created!");
+        this.reset();
+        fetchAnnouncements(); // Update the announcement list after posting
+      } else {
+        alert("Failed to create announcement.");
+      }
+    });
+
+    // Fetch announcements from the server and display them
+    async function fetchAnnouncements() {
+      console.log("Fetching announcements...");
+      try {
+        const res = await fetch("http://localhost:5000/api/announcements");
+    
+        if (!res.ok) {
+          throw new Error(`Failed to fetch: ${res.status} ${res.statusText}`);
+        }
+    
+        const data = await res.json();
+        const list = document.getElementById("announcementList");
+        list.innerHTML = "";
+    
+        if (Array.isArray(data) && data.length > 0) {
+          data.forEach((a) => {
+            list.innerHTML += `
+              <div class="announcement-item">
+                <h4>${a.title}</h4>
+                <p>${a.description}</p>
+                <p><strong>Target:</strong> ${a.target_audience}</p>
+                <p><strong>Posted by:</strong> ${a.created_by || 'Unknown'} on ${new Date(a.created_at).toLocaleString()}</p>
+                ${a.attachment_path ? `<a href="http://localhost:5000/${a.attachment_path}" target="_blank">Download Attachment</a>` : ""}
+              </div>
+            `;
+          });
+        } else {
+          list.innerHTML = "<p>No announcements found.</p>";
+        }
+      } catch (error) {
+        console.error("Error fetching announcements:", error);
+        alert("Failed to fetch announcements. Check the console for more details.");
+      }
+    }
+    
+    // Add event listener to the "Show Announcements" button
+    document.getElementById("showAnnouncementsBtn").addEventListener("click", async () => {
+      console.log("Show Announcements button clicked.");
+      await fetchAnnouncements();
+    });
+    
+    fetch("http://localhost:5000/api/announcements")
+    .then(response => response.json())
+    .then(data => {
+      console.log("Announcements:", data);  // Display fetched announcements
+      // Here you can also update the HTML to display the announcements
+    })
+    .catch(error => {
+      console.error("Error fetching announcements:", error);
+    });
+  </script>
+
+</body>
+</html>

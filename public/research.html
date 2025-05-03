@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Research - SGGS Institute of Engineering & Technology</title>
+    <link rel="stylesheet" href="css/departmentStyles.css" />
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    color: white;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content Styles */
+main {
+    margin: 20px;
+}
+
+.research-institute {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.research-institute h2 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #003366;
+}
+
+.research-institute h3 {
+    color: #006699;
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.research-institute p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+/* Section Styles */
+.research-intro, .research-facilities, .research-scholarships, .academic-research, .sponsored-research {
+    margin-bottom: 25px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.research-scholarships ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.research-scholarships li {
+    margin: 8px 0;
+    font-size: 1.1em;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+}
+
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+footer ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Hover effect for nav links */
+.nav-links li a:hover {
+    background-color: #ffffff22; /* subtle transparent background */
+    color: #172855;              /* highlight color */
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile menu icon */
+.mobile-menu-icon {
+    display: none;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #003366;
+        position: absolute;
+        width: 100%;
+        top: 60px;
+        left: 0;
+        padding: 15px;
+        z-index: 10;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .mobile-menu-icon {
+        display: block;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Institute Logo" class="logo" />
+      </header>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="department.html">Home</a></li>
+          <li><a href="department.html">About Us</a></li>
+          <li><a href="academics.html">Academics</a></li>
+          <li><a href="faculty.html">Faculty</a></li>
+          <li><a href="#">Research</a></li>
+          <li><a href="Facilities.html">Facilities</a></li>
+          <li><a href="placements.html">Placements</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+        <div class="mobile-menu-icon" onclick="toggleMenu()">☰</div>
+      </nav>
+
+
+    <main>
+        <section class="research-institute">
+            <h2>Research in the Institute</h2>
+            
+            <!-- Introduction to Research Program -->
+            <div class="research-intro">
+                <p>The Institute offers a Ph.D. program under its affiliating university, Swami Ramanand Teerth Marathwada (SRTM) University, Nanded. The Institute has taken proactive steps to enhance research by sending faculty to prestigious IITs and NITs for higher studies, promoting a culture of excellence.</p>
+                <p>More than 50% of the regular faculty members are doctorates, contributing significantly to the institute's research capabilities. The faculty’s expertise and the state-of-the-art facilities provide an ideal environment for both teaching and research.</p>
+            </div>
+
+            <!-- Research Facilities and Contributions -->
+            <div class="research-facilities">
+                <h3>State-of-the-Art Research Facilities</h3>
+                <p>The Institute boasts cutting-edge equipment and machinery for teaching, research, and consultancy. Faculty contribute to laboratory development through proposals to various funding agencies like AICTE, DST, BARC, NRB, etc., along with the funding obtained through TEQIP phases and Government of Maharashtra grants.</p>
+                <p>Most laboratories are open 24/7, and four of the Institute’s departments have FIST-sponsored laboratories. The Institute has also established a “Centre of Excellence” in Signal and Image Processing under TEQIP.</p>
+            </div>
+
+            <!-- Scholarships and Fellowships -->
+            <div class="research-scholarships">
+                <h3>Scholarships & Fellowships</h3>
+                <p>Full-time research scholars can avail of the following scholarships/fellowships to support their academic journey:</p>
+                <ul>
+                    <li>Quality Improvement Program (QIP) of the MHRD, Government of India</li>
+                    <li>Technical Education Quality Improvement Program (TEQIP) of the MHRD, Government of India</li>
+                    <li>Center of Excellence in Signal and Image Processing</li>
+                    <li>Visvesvaraya Ph.D. Scheme</li>
+                    <li>AICTE Doctoral Fellowship</li>
+                </ul>
+            </div>
+
+            <!-- Academic Research Programs -->
+            <div class="academic-research">
+                <h3>Academic Research Programs</h3>
+                <p>The academic research programs at SGGSIE&T are conducted under the guidance of faculty members. These programs lead to M.Tech and Ph.D. degrees. Research work is undertaken by individual scholars or specific research groups in each department. Topics of research include theoretical and experimental studies, with access to well-equipped laboratories for experimentation and development.</p>
+            </div>
+
+            <!-- Sponsored Research -->
+            <div class="sponsored-research">
+                <h3>Sponsored Research</h3>
+                <p>The Institute participates in sponsored research through national-level organizations that fund specific research projects. These time-bound projects allow faculty members to register for academic degrees and create valuable new resources for the department. Research proposals are prepared by faculty and submitted to various organizations, depending on the nature of the research and the interests of the funding bodies.</p>
+                <p>All sponsored research activities are coordinated by SGGSIE&T and SRTMU Nanded.</p>
+            </div>
+        </section>
+    </main>
+
+ 
+
+    <footer>
+        <div class="footer-container">
+          <p>&copy; 2025 Computer Science and Engineering Department. All rights reserved.</p>
+          <p>Designed by Students of SGGS</p>
+        </div>
+      </footer>
+      
+      <script>
+        function toggleMenu() {
+          document.querySelector(".nav-links").classList.toggle("active");
+        }
+      </script>
+      
+</body>
+</html>
